@@ -12,7 +12,6 @@ const Subscribe = () => {
   const handleSubscribe = async (e) => {
     e.preventDefault();
     try {
-      // Sends the email to the backend as required [cite: 71, 96]
       await axios.post('/api/subscribe', { email });
       alert("Subscribed successfully!");
       setEmail("");

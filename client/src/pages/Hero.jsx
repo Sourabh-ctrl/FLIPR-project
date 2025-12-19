@@ -14,7 +14,6 @@ const Hero
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Submits data to the backend for the admin panel [cite: 61]
       await axios.post('/api/contact', formData);
       alert("Consultation request sent!");
     } catch (err) {
@@ -31,7 +30,6 @@ const Hero
 
       <div className="relative z-10 container mx-auto flex lg:flex-row items-center justify-center gap-12">
         
-        {/* Left Side: Headline Text  */}
         <div className="text-white lg:w-1/2 text-center lg:text-left">
           <h2 className="tracking opacity-60 text-7xl font-bold blur-none mb-4">
            Consultation,<br /> Design <br /> & Marketing 
@@ -39,7 +37,6 @@ const Hero
           
         </div>
 
-        {/* Right Side: Consultation Form [cite: 54, 62] */}
         <div id="contact" className="bg-[#29519d] opacity-80 p-8 rounded-lg shadow-2xl max-w-sm">
           <h3 className="text-2xl text-white font-bold mb-6 text-center uppercase tracking-tight">
            Get a Free <br />Consultation

@@ -9,10 +9,8 @@ const Bottom = () => {
         backgroundPosition: "center",
       }}
     >
-      {/* Overlay */}
       <div className="absolute inset-0 bg-black/60"></div>
 
-      {/* Content */}
       <div className="relative z-10 text-center px-6">
         <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
           Let’s Build Something Amazing

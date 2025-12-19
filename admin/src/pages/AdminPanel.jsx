@@ -11,13 +11,12 @@ const AdminPanel = () => {
   const [contacts, setContacts] = useState([]);
   const [subscribers, setSubscribers] = useState([]);
 
-  // Fetching all data for the admin to view
   useEffect(() => {
     const fetchData = async () => {
       const resProj = await axios.get('/api/projects');
       const resCli = await axios.get('/api/clients');
-      const resCon = await axios.get('/api/admin/contacts'); // [cite: 90]
-      const resSub = await axios.get('/api/admin/subscribers'); // [cite: 96]
+      const resCon = await axios.get('/api/admin/contacts');
+      const resSub = await axios.get('/api/admin/subscribers');
       
       setProjects(resProj.data);
       setClients(resCli.data);
@@ -29,7 +28,6 @@ const AdminPanel = () => {
 
   return (
     <div className="flex min-h-screen bg-gray-100">
-      {/* 📁 Sidebar Navigation */}
       <div className="w-64 bg-slate-800 text-white p-6 space-y-4">
         <h2 className="text-xl font-bold mb-8">Admin Dashboard</h2>
         <button onClick={() => setActiveTab('projects')} className={`w-full text-left p-2 rounded ${activeTab === 'projects' ? 'bg-blue-600' : ''}`}>Project Management</button>
@@ -38,7 +36,6 @@ const AdminPanel = () => {
         <button onClick={() => setActiveTab('subscribers')} className={`w-full text-left p-2 rounded ${activeTab === 'subscribers' ? 'bg-blue-600' : ''}`}>Newsletter List</button>
       </div>
 
-      {/* 🖥️ Main Content Area */}
       <div className="flex-1 p-10">
         {activeTab === 'projects' && <ProjectManager data={projects} />}
         {activeTab === 'clients' && <ClientManager data={clients} />}

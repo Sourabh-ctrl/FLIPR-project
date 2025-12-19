@@ -2,7 +2,6 @@ import { connect } from 'mongoose';
 
 const connectDB = async () => {
   try {
-    // Replace with your MongoDB Atlas Connection URI
     const conn = await connect(process.env.MONGO_URI);
     console.log(`MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {

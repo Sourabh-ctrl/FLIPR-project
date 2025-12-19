@@ -6,15 +6,12 @@ const Testimonials = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Fetches all clients from the backend as required 
     const fetchClients = async () => {
       try {
         const response = await axios.get('/api/clients');
-        console.log('fetched clients:', response.data);
         setClients(response.data || []);
       } catch (error) {
         console.error("Error fetching clients:", error);
-        // fallback minimal sample
         setClients([
           { _id: '1', name: 'Rowhan Smith', designation: 'CEO, Foreclosure', image: 'https://i.pravatar.cc/150?u=rowhan', description: 'Lorem ipsum dolor sit amet.' }
         ]);
@@ -28,13 +25,11 @@ const Testimonials = () => {
   return (
     <section id="testimonials" className="py-20 bg-white">
       <div className="container  px-6 ">
-        {/* Section Heading [cite: 118] */}
        <h2 className="text-3xl md:text-4xl font-bold text-center text-blue-600 mb-12">
          Happy Clients
         </h2>
         <hr className="border-t-4 border-blue-600 rounded w-16 mx-auto mb-12" />
 
-        {/* Clients Flex/Grid Layout [cite: 34, 40] */}
         <div className="flex flex-wrap justify-center gap-8 max-w-7xl mx-auto">
           {loading ? (
             <p>Loading clients…</p>

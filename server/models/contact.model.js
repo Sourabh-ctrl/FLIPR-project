@@ -1,10 +1,10 @@
 import { Schema, model } from 'mongoose';
 
 const contactSchema = Schema({
-  fullName: { type: String, required: true }, // [cite: 57, 92]
-  email: { type: String, required: true }, // [cite: 58, 93]
-  mobile: { type: String, required: true }, // [cite: 59, 94]
-  city: { type: String, required: true }, // [cite: 60, 95]
+  fullName: { type: String, required: true },
+  email: { type: String, required: true },
+  mobile: { type: String, required: true },
+  city: { type: String, required: true },
 }, { timestamps: true });
 
 export default model('Contact', contactSchema);
