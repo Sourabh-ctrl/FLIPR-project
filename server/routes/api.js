@@ -1,13 +1,13 @@
-import { Router } from 'express';
+import { Router } from "express";
 const router = Router();
-import Project from '../models/project.model.js';
-import Client from '../models/client.model.js';
-import Contact from '../models/contact.model.js';
-import Subscriber from '../models/subscriber.model.js';
+import Project from "../models/project.model.js";
+import Client from "../models/client.model.js";
+import Contact from "../models/contact.model.js";
+import Subscriber from "../models/subscriber.model.js";
 
-router.get('/', (req, res) => res.json({ message: 'API OK' }));
+router.get("/", (req, res) => res.json({ message: "API OK" }));
 
-router.get('/projects', async (req, res) => {
+router.get("/projects", async (req, res) => {
   try {
     const projects = await Project.find({});
     res.json(projects);
@@ -16,7 +16,7 @@ router.get('/projects', async (req, res) => {
   }
 });
 
-router.get('/clients', async (req, res) => {
+router.get("/clients", async (req, res) => {
   try {
     const clients = await Client.find({});
     res.json(clients);
@@ -25,7 +25,7 @@ router.get('/clients', async (req, res) => {
   }
 });
 
-router.post('/contact', async (req, res) => {
+router.post("/contact", async (req, res) => {
   try {
     const contact = await Contact.create(req.body);
     res.status(201).json(contact);
@@ -34,7 +34,7 @@ router.post('/contact', async (req, res) => {
   }
 });
 
-router.post('/subscribe', async (req, res) => {
+router.post("/subscribe", async (req, res) => {
   try {
     const subscriber = await Subscriber.create({ email: req.body.email });
     res.status(201).json(subscriber);
@@ -43,7 +43,7 @@ router.post('/subscribe', async (req, res) => {
   }
 });
 
-router.post('/admin/projects', async (req, res) => {
+router.post("/admin/projects", async (req, res) => {
   try {
     const project = await Project.create(req.body);
     res.status(201).json(project);
@@ -52,7 +52,7 @@ router.post('/admin/projects', async (req, res) => {
   }
 });
 
-router.post('/admin/clients', async (req, res) => {
+router.post("/admin/clients", async (req, res) => {
   try {
     const client = await Client.create(req.body);
     res.status(201).json(client);
@@ -61,7 +61,7 @@ router.post('/admin/clients', async (req, res) => {
   }
 });
 
-router.get('/admin/contacts', async (req, res) => {
+router.get("/admin/contacts", async (req, res) => {
   try {
     const contacts = await Contact.find({}).sort({ createdAt: -1 });
     res.json(contacts);
@@ -70,7 +70,7 @@ router.get('/admin/contacts', async (req, res) => {
   }
 });
 
-router.get('/admin/subscribers', async (req, res) => {
+router.get("/admin/subscribers", async (req, res) => {
   try {
     const subscribers = await Subscriber.find({}).sort({ createdAt: -1 });
     res.json(subscribers);
