@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://flipr-project-qhzj.onrender.com/api/:path*"
+    }
+  ]
+}
