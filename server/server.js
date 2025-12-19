@@ -1,20 +1,10 @@
-import express from 'express';
 import { config } from 'dotenv';
-import cors from 'cors';
 import connectDB from './lib/db.js';
-import apiRoutes from './routes/api.js';
+import app from './app.js';
 
 config();
 
-const app = express();
 const PORT = process.env.PORT || 5000;
-
-app.use(cors());
-app.use(express.json());
-
-app.use('/api', apiRoutes);
-
-app.get('/', (req, res) => res.send('API running'));
 
 const start = async () => {
   try {
@@ -26,4 +16,9 @@ const start = async () => {
   }
 };
 
-start();
+// Only start the HTTP server for local development. On Vercel we'll use `api/index.js`.
+if (process.env.NODE_ENV !== 'production') {
+  start();
+}
+
+export default app;
