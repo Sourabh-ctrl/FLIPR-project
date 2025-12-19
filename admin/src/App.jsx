@@ -1,5 +1,5 @@
 import React from 'react'
-import AdminPanel from './pages/adminPanel'
+import AdminPanel from './pages/AdminPanel'
 
 const App = () => {
   return (
