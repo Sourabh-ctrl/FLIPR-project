@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ProjectManager from '../components/Projects';
-import ClientManager from '../components/clients';
+import ClientManager from '../components/Clients';
 import { ContactViewer, SubscriberViewer } from '../components/Subscribe';
 
 const AdminPanel = () => {
